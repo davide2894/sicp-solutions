@@ -30,3 +30,25 @@
     - watches how guess changes from one iteration to another
     - stops to watch when this change is a very small fraction fo the guess
 |#
+
+; call stack of sqrt procedure
+(define (sqrt x) (sqrt-iter 1.0 x) )
+
+(define (sqrt-iter guess x)
+    (if (good-enough? guess x)
+        guess
+        (sqrt-iter (improve guess x) x)))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(define (square x) (* x x) ) 
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y) (/ (+ x y) 2) )
+
+(sqrt-iter 1.0 125)
+
+(sqrt x)
