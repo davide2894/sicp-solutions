@@ -1,3 +1,4 @@
+#lang racket
 ; call stack of sqrt procedure
 (define (sqrt x) (sqrt-iter 1.0 x) )
 
@@ -9,6 +10,9 @@
 (define (good-enough? guess x)
   (< (abs (- (square guess) x)) 0.001))
 
+(define (calc-good-enough? guess x)
+  (abs (- (square guess) x)))
+
 (define (square x) (* x x) ) 
 
 (define (improve guess x)
@@ -16,4 +20,5 @@
 
 (define (average x y) (/ (+ x y) 2) )
 
-(sqrt x)
+(improve 1.0 123456789876545678765)
+(calc-good-enough? 1.0 123456789876545678765)

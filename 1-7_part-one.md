@@ -15,8 +15,7 @@ are performed with limited precision?
 
 6. Implement an altenative good-enough? procedure that:
   - watches how guess changes from one iteration to another
-  - stops to watch when this change is a very small fraction fo the guess
-
+  - stops to watch when this change is a very small fraction of the guess
 
 # Answers
 0. A mathematical square root is a function of x such that y >= 0 and square of y = x
@@ -50,4 +49,18 @@ I tried to compute the square root procedure with the following examples:
   - this means that infinite real numbers must be stored by using an approximation of said number in base 2, which means that computer can't store a number with a perfect precision. For example: the number 0.1 converts to a inifinite binary number such as 0.00011, where 0011 is the recurring part.
   - There will always be an approximation to compensate for the finite memory it can use
 
-5. Compute manually a large number using this good-enough? procedure to report why the test fails for very large numbers
+5. Compute manually a large number using this good-enough? procedure to report why the test fails for very large numbers:
+   * guess = 1.0
+   * x = 123456789876545678765
+
+|      radicand (x)     | guess | improved guess         | tolerance | good-enough? (|guess^2| - radicand) < 0.001 |
+| 123456789876545678765 | 1.0   | 6.172839493827284e+019 | 0.001     | 1.2345678987654568e+020                     |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
+|                       |       |                        |           |                                             |
