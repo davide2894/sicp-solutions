@@ -28,11 +28,6 @@ sqr-iter does this.
 
 2. The good-enough? procedure procedure tests wheter the square of a guess is close enough to a radicand. To check this closeness it uses an arbitrary mark (0.001). In other words if square-of-guess - radicand < 0.001 then our guess is good enough to be considered the square root of said radicand.
 
-| headerA | headerB | headerC |
-| ------- | ------- | ------- |
-| cont | content | content |
-| add | b| c|
-
 Example of correct sqrt computation
 | radicand (x) | guess -> x         | good-enough?                                   | improved guess     |
 | ------------ | ------------------ | ---------------------------------------------- |:------------------:|
@@ -58,7 +53,7 @@ Example of correct sqrt computation
 |              | 35136.41828645232  | 0.0005407333374023438 -> true -> correct guess | 35136.41828644462  |
 
 
-3. Why the test says that the good-enough? procedure will not be effective for finding/evaluaing very small numbers?
+1. Why the test says that the good-enough? procedure will not be effective for finding/evaluaing very small numbers?
 I tried to compute the square root procedure with the following examples:
   - large numbers: sometimes the compiler succeeds to calculate the result, sometimes it doesn't finish computation
     * Example 1:
