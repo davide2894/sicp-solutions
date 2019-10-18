@@ -13,7 +13,7 @@ are performed with limited precision?
 
 5. Why this good-enough? procedure is inadequate for very large numbers?
 
-6. Implement an altenative good-enough? procedure that:
+6. Design a sqrt procedure that implements an altenative good-enough? procedure that:
   - watches how guess changes from one iteration to another
   - stops to watch when this change is a very small fraction of the guess
 
