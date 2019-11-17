@@ -64,7 +64,7 @@ I tried to compute the square root procedure with the following examples:
   - very small numbers: computation is inaccurate
     * Example 1:
       * (sqrt 0.00000000000000001) -> 0.03125000000000011
-      * (square 0.03125000000000011) -> 0.000976562500000007
+      * (square 0.03125000000000011) -> 0.009076562500000007
     * Example 2:
       * (sqrt 0.001234567890987654323456) -> 0.04341893297724523
       * (square 0.04341893297724523) -> 0.0018852037408825133 
@@ -128,3 +128,17 @@ I tried to compute the square root procedure with the following examples:
 |                   | 35136.418287387845     | 0.06628298759460449       | 35136.41828644462      |
 |                   | 35136.41828644462      | 2.384185791015625e-007    | 35136.41828644462      |
 |                   | 35136.41828644462      | 2.384185791015625e-007    | 35136.41828644462      |
+
+
+
+6. Compute manually a small number using this good-enough? procedure to report why the test fails for very small numbers:
+  * Example:
+    * sqrt 0.00000000000000001) -> 0.03125000000000011
+    * (square 0.03125000000000011) -> 0.009076562500000007
+  * why sqrt is incorrect?
+    * x = 0.00000000000000001
+    * guess = 1
+
+| radicand (x)        | guess -> x             | good-enough?              | improved guess         |
+| ------------------- | ---------------------- | ------------------------- | ---------------------- |
+| 0.00000000000000001 | 1.0                    |     |  |
