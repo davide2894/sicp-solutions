@@ -78,7 +78,7 @@ I tried to compute the square root procedure with the following examples:
    * guess = 1.0
    * x = 98765456789812345
 
-| radicand (x)      | guess -> x             | good-enough?              | improved guess         |
+| radicand (x)      | guess                  | good-enough?              | improved guess         |
 | ----------------- | ---------------------- | ------------------------- | ---------------------- |
 | 98765456789812345 | 1.0                    | 9.876545678981235e+016    | 4.938272839490618e+016 |
 |                   | 4.938272839490618e+016 | 2.4386538637250727e+033   | 2.469136419745309e+016 |
@@ -132,13 +132,10 @@ I tried to compute the square root procedure with the following examples:
 
 
 6. Compute manually a small number using this good-enough? procedure to report why the test fails for very small numbers:
-  * Example:
-    * sqrt 0.00000000000000001) -> 0.03125000000000011
-    * (square 0.03125000000000011) -> 0.009076562500000007
-  * why sqrt is incorrect?
-    * x = 0.00000000000000001
-    * guess = 1
+    * x = 0.0000000000000001
+    * guess = 1.0
 
-| radicand (x)        | guess -> x             | good-enough?              | improved guess         |
+| radicand (x)        | guess -                | good-enough?              | improved guess         |
 | ------------------- | ---------------------- | ------------------------- | ---------------------- |
-| 0.00000000000000001 | 1.0                    |     |  |
+| 0.0000000000000001  | 1.0                    | 0.9999999999999999        | 0.5                    |
+|                     | 0.5                    | 0.2499999999999999        | 0.4999999999999999     |
