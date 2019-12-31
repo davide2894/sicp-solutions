@@ -78,6 +78,8 @@ I tried to compute the square root procedure with the following examples:
    * guess = 1.0
    * x = 98765456789812345
 
+As shown below, (squareOfGuess - radicand) < 0.001 brings fails for very large numbers. Rouning erros happen for very large numbers. The real difference between between square of guess and radicand is greater than 0.001 due to the fact that the difference between two very large floating point numbers gets greater than that.
+
 | radicand (x)      | guess                  | good-enough?              | improved guess         |
 | ----------------- | ---------------------- | ------------------------- | ---------------------- |
 | 98765456789812345 | 1.0                    | 9.876545678981235e+016    | 4.938272839490618e+016 |
@@ -131,11 +133,19 @@ I tried to compute the square root procedure with the following examples:
 
 
 
-6. Compute manually a small number using this good-enough? procedure to report why the test fails for very small numbers:
+1. Compute manually a small number using this good-enough? procedure to report why the test fails for very small numbers:
     * x = 0.0000000000000001
     * guess = 1.0
+
+As shown below:
+- 0.001 difference this time is accomplished soon. Rounding errors for very small numbers makes so that the difference results to true even if that makes the guess very inaccurate.
 
 | radicand (x)        | guess -                | good-enough?              | improved guess         |
 | ------------------- | ---------------------- | ------------------------- | ---------------------- |
 | 0.0000000000000001  | 1.0                    | 0.9999999999999999        | 0.5                    |
 |                     | 0.5                    | 0.2499999999999999        | 0.2500000000000001     |
+|                     | 0.2500000000000001     | 0.06249999999999996       | 0.12500000000000025    |
+|                     | 0.12500000000000025    | 0.015624999999999962      | 0.06250000000000053    |
+|                     | 0.06250000000000053    | 0.0039062499999999657     | 0.03125000000000106    |
+|                     | 0.03125000000000106    | 0.0009765624999999664     |                        |
+

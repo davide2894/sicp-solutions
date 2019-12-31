@@ -20,5 +20,5 @@
 (define (average x y) (/ (+ x y) 2) )
 
 ;(sqrt 1234567890)
-(calc-good-enough? 1 0.0000000000000001);
-(improve  1.0 0.0000000000000001)
+(calc-good-enough? 0.5 0.0000000000000001);
+(improve 0.5 0.0000000000000001)
