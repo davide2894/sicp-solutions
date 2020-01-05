@@ -133,7 +133,7 @@ As shown below, (squareOfGuess - radicand) < 0.001 brings fails for very large n
 
 
 
-1. Compute manually a small number using this good-enough? procedure to report why the test fails for very small numbers:
+Compute manually a small number using this good-enough? procedure to report why the test fails for very small numbers:
     * x = 0.0000000000000001
     * guess = 1.0
 
@@ -153,3 +153,25 @@ As it's shown above, this computation says the following:
 - sqrt of 0.0000000000000001 = 0.03125000000000106
 - but square of 0.03125000000000106 = 0.0009765624999999664
 - the result is very inaccurate 
+
+
+6. To write an alternative sqrt procedure that watches how guess changes each iteration and stops to watch it when this change is a very small fraction of the change itself, we can start by redefining the guess procedure first, as follows 
+
+  (define (good-enough? guess improved-guess)
+    (< (abs (/ (- guess improved-guess) improved-guess)) 0.00000001))
+
+Then we can redefine sqriter as follows:
+(define (sqrt-iter guess x)
+    (if (good-enough? guess (improve guess x))
+        guess
+        (sqrt-iter (improve guess x) x)))
+
+So if the change in guess at the current iteration is lesser than its small fraction then we're ok.
+
+Examples that compare old and new sqrt:
+- very large numbers
+  - old sqrt -> (sqrt 123456789876545678765) -> computation doesn't finish
+  - new sqrt -> (sqrt 123456789876545678765) -> 11111111100.400768
+- very small numbers
+  - old sqrt -> (sqrt 0.0000000000000001) -> 0.03125000000000106 -> computation is inaccurate
+  - new sqrt -> (sqrt 0.0000000000000001) -> 1.0000000009432505e-008
