@@ -1,3 +1,4 @@
+#lang racket
 ;Newton’s method for cube roots is based on the fact that 
 ;if y is an approximation to the cube root of x, then a better approximation is given by the value
 ; ( (x/y*y) + 2y ) /3.   
@@ -16,7 +17,7 @@
   (< (abs (/ (- guess improved-guess) improved-guess)) 0.00000001))
 
 (define (improve guess x)
-  (/ (+ (/ (x (* guess guess))) (* 2 guess)) 3))
+  (/ (+ (/ x (* guess guess)) (* 2 guess)) 3))
 
 
 (cube-root 27)
