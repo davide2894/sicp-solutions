@@ -54,6 +54,7 @@
 
 ; 4 is not equal to 0 so we run the else conditional expression
     (+ (dec 4) (inc 5))
+
     (+ 3 6)
     > 9 
 
