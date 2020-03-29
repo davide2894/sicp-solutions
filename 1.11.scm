@@ -82,18 +82,17 @@ iter a b c counter
 
 now let's translate this procedure in scheme
 (define (f n)
-    (cond (
+    (cond
         ((< n 3) n)
-        ((iter 2 1 0 n-3))
-    )))
+        (else (iter 2 1 0 (- n 3)))
+    ))
 
 (define (iter a b c counter)
-    (cond ((= counter 0) a)
-     else (
-        (iter (
-            (+ a (* 2 b) (* 3 c))
-            a
-            b
-            (- counter 1)
-        )) 
-     ))
+  (cond ((< counter 0) a)
+  (else (iter (+ a (* 2 b) (* 3 c))
+               a
+               b
+               (- counter 1)
+        ))))
+
+(f 5)
